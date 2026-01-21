@@ -1,4 +1,11 @@
-export const technicalQuestions = [
+// Define the type for our question objects
+interface QuestionItem { 
+  question: string;
+  answer: string;
+}
+
+
+export const technicalQuestions: QuestionItem[] = [
   {
     question: "What are the differences between var, let, and const, and when would you use each?",
     answer:
@@ -251,7 +258,7 @@ export const technicalQuestions = [
 ];
 
 
-export const behaviorQuestions = [
+export const behaviorQuestions :string[] = [
 	"Give me an example of the project or initiative that you started on your own. What prompted you to get started?",
 	"Tell me about a time you had to work on several projects at once. How did you handle this?",
 	"Describe a situation in which you felt you had not communicated well enough. What did you do? How did you handle it?",
@@ -317,3 +324,5 @@ export const behaviorQuestions = [
 	"Provide an example of a creative work endeavor. What was exciting or challenging about it?",
 	"Reflect on a time when you were dissatisfied with your work. What improvements could have enhanced your experience?",
 ];
+
+export const comboQuestions : (QuestionItem | string)[] = [...technicalQuestions, ...behaviorQuestions]
