@@ -323,6 +323,9 @@ export const behaviorQuestions :string[] = [
 	"Discuss an experience working under close or extremely loose supervision. How did you navigate it?",
 	"Provide an example of a creative work endeavor. What was exciting or challenging about it?",
 	"Reflect on a time when you were dissatisfied with your work. What improvements could have enhanced your experience?",
+
+  //this is a test
+  "Tell me a time when you had challenge and you able to figure it out but was very stressful"
 ];
 
 export const comboQuestions : (QuestionItem | string)[] = [...technicalQuestions, ...behaviorQuestions]
