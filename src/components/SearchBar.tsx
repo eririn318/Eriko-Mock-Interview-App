@@ -65,7 +65,7 @@ function SearchBar() {
         onSubmit={handleSubmit}
         className="flex items-center border-1 rounded-sm h-8 pl-2 pr-2 mt-3">
             <input placeholder="search"  
-            className="flex-1 outline-none placeholder-white "
+            className="flex-1 outline-none placeholder-black dark:placeholder-white"
             type="text"
             onChange={handleChange}
             value={searchInput}
