@@ -8,7 +8,7 @@ import {useState} from "react"
 
 function SearchResult() {
   const [searchParams] = useSearchParams();
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState<number |null> (null)
   
   //"q" is http://localhost:5173/search?q=java
   const query = searchParams.get("q")?.toLowerCase() || "";
@@ -27,7 +27,7 @@ const filter = allFilteredItems.filter((item)=>{
 })
 
 
-  const toggleAnswer = (index) => {
+  const toggleAnswer = (index:number) => {
     // If clicked question is already open, close it, Else, open it
       setOpenIndex(openIndex === index ? null: index)
   }

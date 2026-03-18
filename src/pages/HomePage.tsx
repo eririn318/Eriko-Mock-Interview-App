@@ -44,10 +44,13 @@ function HomePage() {
 		setShowAnswer(false)
 	};
 
-	//2
+
 
 	useEffect(() => {
 		getRandomQuestionNumber(comboQuestions);
+		  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+
 	}, []);
 
 	const handleNext = () => {
