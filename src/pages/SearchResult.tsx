@@ -1,10 +1,7 @@
-// 
-
-// 
-
 import { technicalQuestions, behaviorQuestions } from "../util/questions";
 import { useSearchParams } from "react-router-dom";
 import {useState} from "react"
+// import { LiaNeos } from "react-icons/lia";
 
 function SearchResult() {
   const [searchParams] = useSearchParams();
@@ -23,6 +20,12 @@ function SearchResult() {
 const allFilteredItems = [...technicalQuestions, ...generateBehaviorQuestions]
 
 const filter = allFilteredItems.filter((item)=>{
+
+    
+ if (query === "") {
+  // return ==>stop continue(do not go to next line)/do not display anything
+  return
+}
   return item.question.toLowerCase().includes(query)
 })
 
@@ -33,31 +36,36 @@ const filter = allFilteredItems.filter((item)=>{
   }
 
   return (
-    <main className="min-h-screen dark:bg-zinc-800 dark:text-black flex flex-col bg-[#F5E9D8] w-full">
+    <main className="min-h-screen dark:bg-zinc-800 dark:text-black flex flex-col  w-full border border-t-0 px-10 dark:border-white">
+
      {/* map filter(line18) and display */}
-      <ul className="list-disc">
+      {/* <ul className="list-disc"> */}
+     <section className="w-full max-w-[50rem] grow mx-auto flex flex-col gap-y-1  p-4">
+         {/* <ul className="w-full max-w-2xl mx-auto min-h-90 py-5 border dark:border-white rounded-sm my-10 dark:bg-[#B0A4A4] shadow-2xl"> */}
+       {/* if user type, show "Please enter a search question" */}
+        {query === "" && <p className="text-center dark:text-white" >Please enter search a question</p>}
+
         {filter.map((item, index) => (
-          <li className="flex flex-col justify-center border rounded my-1 mx-10 "
+          <li className="flex flex-col justify-center border rounded dark:bg-[#B0A4A4] bg-[#FAF3F0] dark:text-white "
             key={index}
-            onClick = { () => toggleAnswer(index)} 
+           
             >
           
-             <div className="flex justify-center pl-5 p-3 bg-[#FFFBE9]">
-                 <p >{item.question} <span className="cursor-pointer ">{item.answer && (openIndex === index ?  "▲": "▼") }</span> </p>
+             <div className="flex flex-col justify-center pl-5 p-3 ">
+                 <p className="flex justify-between">{item.question} <span  onClick = { () => toggleAnswer(index)}  className="cursor-pointer pl-15">{item.answer && (openIndex === index ?  "▲": "▼") }</span> </p>
             </div>
 
         {openIndex === index && item.answer &&(
       
-            <p className="text-center pl-5 p-3 border-y-1 bg-[#B6A28E]">{item.answer}</p> 
+            <p className="pl-5 p-3 border-t-1 ">{item.answer}</p> 
            
           
         )
 }
           </li>
-
-
         ))}
-      </ul>
+      {/* </ul> */}
+      </section>
       </main>
   );
 }

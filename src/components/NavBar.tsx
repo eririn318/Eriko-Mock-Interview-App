@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar"
 
 function NavBar() {
     return(
-        <nav className="flex justify-end gap-10 dark:bg-[#B0A4A4] dark:text-white h-15 border-1 pr-5 bg-[#FAF1E6]">
+        <nav className="flex justify-end gap-10 dark:bg-[#B0A4A4] dark:text-white h-15 border-1 pr-5 bg-[#FAF3F0]">
 
      <NavLink to="/" className="mt-4">Home</NavLink>
      <SearchBar/> 

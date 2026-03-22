@@ -64,8 +64,8 @@ function HomePage() {
 	};
 
 	return (
-		<main className="min-h-screen dark:bg-zinc-800 dark:text-white flex flex-col bg-[#F5E9D8]">
-			<section className="max-w-[85rem] grow mx-auto flex flex-col gap-y-8 justify-center items-center p-4">
+		<main className="min-h-screen dark:bg-zinc-800 dark:text-white flex flex-col  border border-t-0 px-10">
+			<section className="w-full max-w-[35rem]  grow mx-auto flex flex-col gap-y-8 justify-center items-center p-4 border rounded-sm my-10 dark:bg-[#B0A4A4] bg-[#FAF3F0] shadow-xl">
 				<h1 className="text-2xl font-bold text-center">{typeof currentQuestion !== "string" ? currentQuestion.question : currentQuestion}</h1>
 				{showAnswer && <p className="w-3/5">{typeof currentQuestion !== "string" ? currentQuestion.answer : ''}</p>}
                 
