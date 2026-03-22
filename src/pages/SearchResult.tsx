@@ -37,7 +37,7 @@ const filter = allFilteredItems.filter((item)=>{
 
   return (
     <main className="min-h-screen dark:bg-zinc-800 dark:text-black flex flex-col  w-full border border-t-0 px-10 dark:border-white">
-
+      <h1 className="text-3xl text-center text-bold mt-10 mb-5 dark:text-white">Search Result</h1>
      {/* map filter(line18) and display */}
       {/* <ul className="list-disc"> */}
      <section className="w-full max-w-[50rem] grow mx-auto flex flex-col gap-y-1  p-4">
