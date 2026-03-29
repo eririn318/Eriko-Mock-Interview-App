@@ -1,20 +1,31 @@
 import { technicalQuestions, behaviorQuestions } from "../util/questions";
 import { useSearchParams } from "react-router-dom";
-import {useState} from "react"
-// import { LiaNeos } from "react-icons/lia";
+import {useState, useEffect} from "react"
+
+
 
 function SearchResult() {
   const [searchParams] = useSearchParams();
   const [openIndex, setOpenIndex] = useState<number |null> (null)
-  
+
+
   //"q" is http://localhost:5173/search?q=java
-  const query = searchParams.get("q")?.toLowerCase() || "";
+  const query = searchParams.get("q" )?.toLowerCase() || "";
+
   
+  useEffect(() => {
+    // closes accordion
+    // eslint-disable-next-line
+    setOpenIndex(null);
+  // when query changes
+}, [query]);
+
  const generateBehaviorQuestions = behaviorQuestions.map((q)=>({
   question:q,
   answer:""
  }))
 
+ 
 
 //map technicalQuestion and behaviorQuestions
 const allFilteredItems = [...technicalQuestions, ...generateBehaviorQuestions]
@@ -24,7 +35,8 @@ const filter = allFilteredItems.filter((item)=>{
     
  if (query === "") {
   // return ==>stop continue(do not go to next line)/do not display anything
-  return
+  return false
+
 }
   return item.question.toLowerCase().includes(query)
 })
@@ -44,10 +56,11 @@ const filter = allFilteredItems.filter((item)=>{
          {/* <ul className="w-full max-w-2xl mx-auto min-h-90 py-5 border dark:border-white rounded-sm my-10 dark:bg-[#B0A4A4] shadow-2xl"> */}
        {/* if user type, show "Please enter a search question" */}
         {query === "" && <p className="text-center dark:text-white" >Please enter search a question</p>}
+        {query !== "" && filter.length === 0 && <p className="text-center dark:text-white">No results found</p>}
 
         {filter.map((item, index) => (
           <li className="flex flex-col justify-center border rounded dark:bg-[#B0A4A4] bg-[#FAF3F0] dark:text-white "
-            key={index}
+            key={item.question}
            
             >
           
